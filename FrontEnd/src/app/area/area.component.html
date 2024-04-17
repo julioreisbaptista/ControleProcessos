@@ -1,0 +1,38 @@
+<div class="container">
+  <p>Cadastro de Areas</p>
+
+
+  <form>
+    <div>
+      <label>ID</label>
+      <input type="text" disabled [(ngModel)]="id" name="id">
+    </div>
+    <div>
+      <label>Nome</label>
+      <input type="text" [(ngModel)]="nome" name="nome">
+    </div>
+    <button (click)="buttonClick()">
+      {{ id ? 'Salvar' : 'Criar'}}
+    </button>
+
+
+  </form>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>...</th>
+
+    </tr>
+    <tr *ngFor="let ar of Areas$ | async">
+      <td>{{ ar.id }}</td>
+      <td>{{ ar.nome }}</td>
+      <td>
+        <span (click)="changeForm(ar)">Alterar</span>
+      </td>
+      <td>
+        <span (click)="deleteArea(ar.id!)">Excluir</span>
+      </td>
+    </tr>
+  </table>
+</div>

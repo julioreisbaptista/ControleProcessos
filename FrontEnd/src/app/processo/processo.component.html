@@ -1,0 +1,63 @@
+<div class="container">
+  <p>Cadastro processo</p>
+
+
+  <form>
+    <div>
+      <label>ID</label>
+      <input type="text" disabled [(ngModel)]="id" name="id">
+    </div>
+    <div>
+      <label>Nome</label>
+      <input type="text" [(ngModel)]="nome" name="nome">
+    </div>
+    <div>
+      <label>Area</label>
+      <select [(ngModel)]="areaid" name="areaid">
+        <option *ngFor="let opcao of Areas$ | async" [value]="opcao.id">{{opcao.nome}}</option>
+      </select>
+    </div>
+    <div>
+      <label>Tipo</label>
+      <select [(ngModel)]="processotipoid" name="processotipoid">
+        <option *ngFor="let opcao of Tipoprocessos$ | async" [value]="opcao.id">{{opcao.nome}}</option>
+      </select>
+    </div>
+    <div>
+      <label>Sub Projetos</label>
+      <input type="text" [(ngModel)]="subprocessos" name="subprocessos">
+    </div>
+
+
+
+
+
+    <button (click)="buttonClick()">
+      {{ id ? 'Salvar' : 'Criar'}}
+    </button>
+
+
+  </form>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Area</th>
+      <th>Tipo</th>
+      <th>Sub Projetos</th>
+    </tr>
+    <tr *ngFor="let ar of Processos$ | async">
+      <td>{{ ar.id }}</td>
+      <td>{{ ar.nome }}</td>
+      <td>{{ ar.areaId }}</td>
+      <td>{{ ar.processoTipoId }}</td>
+      <td>{{ ar.subprocessos }}</td>
+      <td>
+        <span (click)="changeForm(ar)">Alterar</span>
+      </td>
+      <td>
+        <span (click)="deleteProcesso(ar.id!)">Excluir</span>
+      </td>
+    </tr>
+  </table>
+</div>
