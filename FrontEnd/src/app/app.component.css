@@ -4,7 +4,7 @@ p {
 
 :host {
   height: 100vh;
-  width: 100vw;
+  width: 94%;
   display: grid;
   place-items: left;
   padding: 20px;
@@ -21,7 +21,7 @@ p {
   background: linear-gradient(145deg, #232425, #2a2b2c);
   box-shadow: 29px 29px 43px #181819, -29px -29px 43px #363839;
   padding: 20px;
-  width: 100%;
+  width: 90%;
   form
 
 {

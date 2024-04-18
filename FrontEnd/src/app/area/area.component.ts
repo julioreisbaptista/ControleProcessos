@@ -19,6 +19,12 @@ export class AreaComponent {
   //Areas: Area[] = [];
   Areas$ = new Observable<Area[]>();
 
+  restartForm() {
+
+    this.id = 0;
+    this.nome = '';
+  }
+
   constructor(private areaService: AreaService) {
     this.getAreasCad();
   }

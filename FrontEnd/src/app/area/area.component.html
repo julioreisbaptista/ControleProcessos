@@ -14,14 +14,21 @@
     <button (click)="buttonClick()">
       {{ id ? 'Salvar' : 'Criar'}}
     </button>
+    <button (click)="restartForm()">
+      Cancelar
+    </button>
 
 
   </form>
+  
   <table>
     <tr>
       <th>Id</th>
       <th>Nome</th>
-      <th>...</th>
+      <th>
+
+      </th>
+      <th></th>
 
     </tr>
     <tr *ngFor="let ar of Areas$ | async">

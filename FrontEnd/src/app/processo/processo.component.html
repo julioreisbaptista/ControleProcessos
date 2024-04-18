@@ -41,16 +41,18 @@
   <table>
     <tr>
       <th>Id</th>
-      <th>Nome</th>
+      <th>Processo</th>
       <th>Area</th>
       <th>Tipo</th>
       <th>Sub Projetos</th>
+      <th></th>
+      <th></th>
     </tr>
-    <tr *ngFor="let ar of Processos$ | async">
+    <tr *ngFor="let ar of combinedObservable$ | async ">
       <td>{{ ar.id }}</td>
       <td>{{ ar.nome }}</td>
-      <td>{{ ar.areaId }}</td>
-      <td>{{ ar.processoTipoId }}</td>
+      <td>{{ ar.areaNome }}</td>
+      <td>{{ ar.tipoprocessoNome }}</td>
       <td>{{ ar.subprocessos }}</td>
       <td>
         <span (click)="changeForm(ar)">Alterar</span>
